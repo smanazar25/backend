@@ -1,0 +1,16 @@
+name: Trigger frontend Deployment
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Frontend Deployment
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.GH_PAT }}" \
+               -H "Accept: application/vnd.github.v3+json" \
+               https://api.github.com/repos/your-username/frontend/dispatches \
+               -d '{"event_type": "deploy-frontend"}'

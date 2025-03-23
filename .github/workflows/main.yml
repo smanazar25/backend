@@ -1,4 +1,4 @@
-name: Trigger frontend Deployments
+name: Trigger frontend Deploymentss
 on:
   push:
     branches:
